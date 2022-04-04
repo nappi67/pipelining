@@ -1,5 +1,8 @@
 # .gitlab-ci.yml
 ---
+default:
+  image: ruby:2.7.4
+
 build-job:
   stage: build
   script:
