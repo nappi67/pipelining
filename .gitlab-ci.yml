@@ -1,7 +1,7 @@
 # .gitlab-ci.yml
 ---
 default:
-  image: cytopia/ansible-lint:latest
+  image: pipelinecomponents/ansible-lint:latest
   
 stages:
   - ansible-lint
