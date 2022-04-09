@@ -1,0 +1,10 @@
+---
+- debug: 
+    var: r_get_all_syslog_exporters.results
+- debug:
+    var: v_syslog_exporter[].vmname
+
+- debug:
+    msg: "kein syslog server eingerichtet auf {{ item.hostname }}"
+  loop: "{{ igv_nodes }}"
+  when:  item.vmname in v_syslog_exporter[*].vmname

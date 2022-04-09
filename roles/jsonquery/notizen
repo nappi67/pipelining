@@ -1,0 +1,77 @@
+request_permission|json_query('results[*].url')
+
+https://www.middlewareinventory.com/blog/ansible_json_query/
+https://jmespath.org/tutorial.html
+https://jmespath.org/examples.html
+
+
+########################
+Output:
+"msg": {
+        "changed": false,
+        "datacenter_info": [
+            {
+                "name": "WLD02-DC",
+                "moid": "datacenter-21",
+                "config_status": "gray",
+                "overall_status": "gray"
+            }
+        ],
+        "failed": false
+    },
+
+ filtering name
+dc_query: "datacenter_info | [0].name"
+dc_name: "{{ datacenter_info |  json_query(dc_query) }}"
+
+############################################################
+# port_facts_query: "[*].display_name"
+# port_facts_query: "[*].{display_name: display_name }"
+# port_facts_query: "[? display_name==`edge-uplink-segment-port-nsxedge015` || display_name==`edge-uplink-segment-port-nsxedge037`].{display_name: display_name}"
+## port_facts_query: "[? display_name==`edge-uplink-segment-port-nsxedge015`].{display_name: display_name}"
+# port_facts_query: "[? display_name==`edge-uplink-segment-port-nsxedge015`].{attachment: attachment}"
+
+
+# jmesquery: "[*].{Name: name, Email: email, Phone: phone, CompanyName: company.name, WebSite: website, City: address.city}"
+# jmesquery: "[? name==`Leanne Graham`].{Name: name, Email: email, Phone: phone, CompanyName: company.name, WebSite: website, City: address.city}"
+#       phonebook: "{{phonebook|default({}) | combine ( {item.name : item.phone}) }}"
+ #      with_items: "{{ jsoncontent.json | json_query('[*]')}}"
+# jmesquery: "[? is_default && display_name == 'Default Layer3 Section' ].{attachment_type: LOGICALROUTER, id: id}"  
+
+Funktioniert
+port_facts_query: "[? display_name==`edge-uplink-segment-port-nsxedge015`].attachment | [0].attachment_type"
+port_facts: " {{ lp_facts.results  |  json_query(port_facts_query) }}"
+
+
+
+#############################################################
+    - name: Map facts for vCenter and cluster
+      set_fact:
+        vcenter_fqdn: "{{(ucmdb_vcenter.json.fqdnList | select('match', '(vcsa|wsvnue)[0-9]{3}.*') | list)[0]}}"
+
+#############################################################
+
+- name: "Extract info from Firewall"
+  set_fact:
+    default_sections_result: "{{ firewall_sections_response.json.results | json_query(jmesquery) | first}}"
+  vars:
+    jmesquery: "[? is_default && display_name == 'Default Layer3 Section' ].{is_default: is_default, id: id}"  
+- name: "Extract info from Firewall"
+  set_fact:
+    firewall_sections_result: "{{ firewall_sections_response.json.results | json_query(jmesquery) }}"
+  vars:
+    jmesquery: "[? display_name=='{{ pks_instance }}-top-section-marker' || display_name=='{{ pks_instance }}-bottom-section-marker'].{display_name: display_name, id: id}"  
+
+network_id: "{{ r_network_info_response.json.value |  json_query('[?name==`presentation-web-net`].network | [0]')}}"
+
+
+
+    # hosts_all: "{{ hosts_json.json.data | map(attribute='hostname') | list }}"
+    # hosts_i: "{{ hosts_json.json.data | map(attribute='hostname') | map('regex_search','.*-i-.*') | select('string') | list }}"
+
+
+# vm_tags_query: "[? tags[0].tag=='presentation-app-web']"
+# vm_tags: "{{vm_all_respons.json.results | json_query(vm_tags_query) | map(attribute='display_name') | list}}"
+vm_tags_query: "[? tags[0].tag=='presentation-app-web'] | [*].display_name"
+vm_tags: "{{vm_all_respons.json.results | json_query(vm_tags_query)}}"
+

@@ -1,0 +1,311 @@
+{
+    "r_get_all_syslog_exporters.results": [
+        {
+            "content_length": "496",
+            "cookies": {
+                "JSESSIONID": "65476EA85458B5C4095F39785D704BD8"
+            },
+            "pragma": "no-cache",
+            "set_cookie": "JSESSIONID=65476EA85458B5C4095F39785D704BD8; Path=/; Secure; HttpOnly",
+            "vmw_task_id": "5d4d2142-a14f-cede-73d0-b03055cb1e3e_190f6a64-15fb-46a6-ab16-1b0801b34ab4",
+            "x_content_type_options": "nosniff",
+            "json": {
+                "_self": {
+                    "href": "/node/services/syslog/exporters",
+                    "rel": "self"
+                },
+                "_schema": "NodeSyslogExporterPropertiesListResult",
+                "results": [
+                    {
+                        "_self": {
+                            "href": "/node/services/syslog/exporters/syslog4",
+                            "rel": "self"
+                        },
+                        "protocol": "UDP",
+                        "exporter_name": "syslog4",
+                        "level": "WARNING",
+                        "_schema": "NodeSyslogExporterProperties",
+                        "server": "loginsight01.zd.datev.de",
+                        "port": 514
+                    }
+                ],
+                "result_count": 1
+            },
+            "invocation": {
+                "module_args": {
+                    "directory_mode": null,
+                    "force": false,
+                    "remote_src": null,
+                    "status_code": [
+                        200
+                    ],
+                    "follow": false,
+                    "owner": null,
+                    "body_format": "raw",
+                    "client_key": null,
+                    "group": null,
+                    "use_proxy": true,
+                    "headers": {},
+                    "unsafe_writes": null,
+                    "setype": null,
+                    "content": null,
+                    "serole": null,
+                    "follow_redirects": "safe",
+                    "return_content": false,
+                    "method": "GET",
+                    "body": null,
+                    "url_username": "admin",
+                    "url_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "dest": null,
+                    "selevel": null,
+                    "force_basic_auth": true,
+                    "removes": null,
+                    "http_agent": "ansible-httpget",
+                    "user": "admin",
+                    "regexp": null,
+                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "src": null,
+                    "url": "https://nsxmgr10-1.infra.dvint.de/api/v1/node/services/syslog/exporters",
+                    "validate_certs": false,
+                    "seuser": null,
+                    "client_cert": null,
+                    "creates": null,
+                    "unix_socket": null,
+                    "delimiter": null,
+                    "mode": null,
+                    "timeout": 30,
+                    "attributes": null,
+                    "backup": null
+                }
+            },
+            "cache_control": "no-cache, no-store, max-age=0, must-revalidate",
+            "status": 200,
+            "strict_transport_security": "max-age=31536000 ; includeSubDomains",
+            "expires": "0",
+            "elapsed": 0,
+            "msg": "OK (496 bytes)",
+            "content_type": "application/json",
+            "date": "Mon, 21 Mar 2022 15:40:21 GMT",
+            "x_frame_options": "SAMEORIGIN",
+            "x_xss_protection": "1; mode=block",
+            "url": "https://nsxmgr10-1.infra.dvint.de/api/v1/node/services/syslog/exporters",
+            "changed": false,
+            "server": "NSX",
+            "connection": "close",
+            "redirected": false,
+            "cookies_string": "JSESSIONID=65476EA85458B5C4095F39785D704BD8",
+            "ansible_facts": {
+                "discovered_interpreter_python": "/usr/bin/python"
+            },
+            "failed": false,
+            "item": {
+                "cluster": "ZD-Basis",
+                "datacenter": "01_ZD-Basis",
+                "datastore": "RZ1_RZ4_ZD-Basis_WiLi10_01_SP",
+                "hostname": "nsxmgr10-1.infra.dvint.de",
+                "inventory_folder": "Infrastruktur-Sonstiges/ESA-VDI",
+                "mgmt_ip": "10.221.160.225",
+                "nodenr": "node1",
+                "portgroup": "vLAN1231",
+                "size": "medium",
+                "vmname": "nsxmgr10-1"
+            },
+            "ansible_loop_var": "item"
+        },
+        {
+            "content_length": "178",
+            "cookies": {
+                "JSESSIONID": "D1C3C1D26049531DBE502B41848EB427"
+            },
+            "pragma": "no-cache",
+            "set_cookie": "JSESSIONID=D1C3C1D26049531DBE502B41848EB427; Path=/; Secure; HttpOnly",
+            "vmw_task_id": "ad092142-ee47-fadc-c182-c2578ee50ad2_da53b8fe-6fcb-45e9-9929-6f25c98f46bc",
+            "x_content_type_options": "nosniff",
+            "json": {
+                "_self": {
+                    "href": "/node/services/syslog/exporters",
+                    "rel": "self"
+                },
+                "_schema": "NodeSyslogExporterPropertiesListResult",
+                "results": [],
+                "result_count": 0
+            },
+            "invocation": {
+                "module_args": {
+                    "directory_mode": null,
+                    "force": false,
+                    "remote_src": null,
+                    "status_code": [
+                        200
+                    ],
+                    "follow": false,
+                    "owner": null,
+                    "body_format": "raw",
+                    "client_key": null,
+                    "group": null,
+                    "use_proxy": true,
+                    "headers": {},
+                    "unsafe_writes": null,
+                    "setype": null,
+                    "content": null,
+                    "serole": null,
+                    "follow_redirects": "safe",
+                    "return_content": false,
+                    "method": "GET",
+                    "body": null,
+                    "url_username": "admin",
+                    "url_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "dest": null,
+                    "selevel": null,
+                    "force_basic_auth": true,
+                    "removes": null,
+                    "http_agent": "ansible-httpget",
+                    "user": "admin",
+                    "regexp": null,
+                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "src": null,
+                    "url": "https://nsxmgr10-2.infra.dvint.de/api/v1/node/services/syslog/exporters",
+                    "validate_certs": false,
+                    "seuser": null,
+                    "client_cert": null,
+                    "creates": null,
+                    "unix_socket": null,
+                    "delimiter": null,
+                    "mode": null,
+                    "timeout": 30,
+                    "attributes": null,
+                    "backup": null
+                }
+            },
+            "cache_control": "no-cache, no-store, max-age=0, must-revalidate",
+            "status": 200,
+            "strict_transport_security": "max-age=31536000 ; includeSubDomains",
+            "expires": "0",
+            "elapsed": 0,
+            "msg": "OK (178 bytes)",
+            "content_type": "application/json",
+            "date": "Mon, 21 Mar 2022 15:40:22 GMT",
+            "x_frame_options": "SAMEORIGIN",
+            "x_xss_protection": "1; mode=block",
+            "url": "https://nsxmgr10-2.infra.dvint.de/api/v1/node/services/syslog/exporters",
+            "changed": false,
+            "server": "NSX",
+            "connection": "close",
+            "redirected": false,
+            "cookies_string": "JSESSIONID=D1C3C1D26049531DBE502B41848EB427",
+            "failed": false,
+            "item": {
+                "cluster": "ZD-Basis",
+                "datacenter": "01_ZD-Basis",
+                "datastore": "RZ1_RZ4_ZD-Basis_WiLi10_02_SP",
+                "hostname": "nsxmgr10-2.infra.dvint.de",
+                "inventory_folder": "Infrastruktur-Sonstiges/ESA-VDI",
+                "mgmt_ip": "10.221.160.226",
+                "nodenr": "node2",
+                "portgroup": "vLAN1231",
+                "size": "medium",
+                "vmname": "nsxmgr10-2"
+            },
+            "ansible_loop_var": "item"
+        },
+        {
+            "content_length": "178",
+            "cookies": {
+                "JSESSIONID": "395CB2217B5959F58E4A4381EE9C8949"
+            },
+            "pragma": "no-cache",
+            "set_cookie": "JSESSIONID=395CB2217B5959F58E4A4381EE9C8949; Path=/; Secure; HttpOnly",
+            "vmw_task_id": "cfad2142-86a5-296c-b75e-dacea1b9e7db_13c808f8-4183-4e5d-9ca0-ecedf77afdbe",
+            "x_content_type_options": "nosniff",
+            "json": {
+                "_self": {
+                    "href": "/node/services/syslog/exporters",
+                    "rel": "self"
+                },
+                "_schema": "NodeSyslogExporterPropertiesListResult",
+                "results": [],
+                "result_count": 0
+            },
+            "invocation": {
+                "module_args": {
+                    "directory_mode": null,
+                    "force": false,
+                    "remote_src": null,
+                    "status_code": [
+                        200
+                    ],
+                    "follow": false,
+                    "owner": null,
+                    "body_format": "raw",
+                    "client_key": null,
+                    "group": null,
+                    "use_proxy": true,
+                    "headers": {},
+                    "unsafe_writes": null,
+                    "setype": null,
+                    "content": null,
+                    "serole": null,
+                    "follow_redirects": "safe",
+                    "return_content": false,
+                    "method": "GET",
+                    "body": null,
+                    "url_username": "admin",
+                    "url_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "dest": null,
+                    "selevel": null,
+                    "force_basic_auth": true,
+                    "removes": null,
+                    "http_agent": "ansible-httpget",
+                    "user": "admin",
+                    "regexp": null,
+                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "src": null,
+                    "url": "https://nsxmgr10-3.infra.dvint.de/api/v1/node/services/syslog/exporters",
+                    "validate_certs": false,
+                    "seuser": null,
+                    "client_cert": null,
+                    "creates": null,
+                    "unix_socket": null,
+                    "delimiter": null,
+                    "mode": null,
+                    "timeout": 30,
+                    "attributes": null,
+                    "backup": null
+                }
+            },
+            "cache_control": "no-cache, no-store, max-age=0, must-revalidate",
+            "status": 200,
+            "strict_transport_security": "max-age=31536000 ; includeSubDomains",
+            "expires": "0",
+            "elapsed": 0,
+            "msg": "OK (178 bytes)",
+            "content_type": "application/json",
+            "date": "Mon, 21 Mar 2022 15:40:22 GMT",
+            "x_frame_options": "SAMEORIGIN",
+            "x_xss_protection": "1; mode=block",
+            "url": "https://nsxmgr10-3.infra.dvint.de/api/v1/node/services/syslog/exporters",
+            "changed": false,
+            "server": "NSX",
+            "connection": "close",
+            "redirected": false,
+            "cookies_string": "JSESSIONID=395CB2217B5959F58E4A4381EE9C8949",
+            "failed": false,
+            "item": {
+                "cluster": "ZD-Basis",
+                "datacenter": "01_ZD-Basis",
+                "datastore": "RZ1_RZ4_ZD-Basis_WiLi10_03_SP",
+                "hostname": "nsxmgr10-3.infra.dvint.de",
+                "inventory_folder": "Infrastruktur-Sonstiges/ESA-VDI",
+                "mgmt_ip": "10.221.160.227",
+                "nodenr": "node3",
+                "portgroup": "vLAN1231",
+                "size": "medium",
+                "vmname": "nsxmgr10-3"
+            },
+            "ansible_loop_var": "item"
+        }
+    ],
+    "_ansible_verbose_always": true,
+    "_ansible_no_log": false,
+    "changed": false
+}

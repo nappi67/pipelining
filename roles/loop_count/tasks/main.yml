@@ -1,0 +1,42 @@
+---
+# - name: create names incl loop_count
+#   debug:
+#     msg: "{{ ansible_loop.index }}"
+#   loop: "{{ v_test }}"
+#   loop_control:
+#     extended: yes
+# - meta: end_play
+
+- include_tasks: execute_batch.yml
+  loop: "{{ v_test | batch(2) | list }}"
+
+- meta: end_play
+
+# tasks file for roles/loop_count
+- name: create names incl loop_count
+  debug:
+    msg: "{{ ansible_loop.index }}"
+  loop: "{{ vmnames }}"
+  loop_control:
+    extended: yes
+
+- name: with_sequence 
+  ansible.builtin.debug:
+    msg: "{{ item }}"
+  with_sequence: start=0 end=4 stride=2 format=testuser%02x
+
+# - name: with_sequence -> loop
+#   ansible.builtin.debug:
+#     msg: "{{ 'testuser%02x' | format(item) }}"
+#   # range is exclusive of the end point
+#   loop: "{{ range(0, 4 + 1, 2)|list }}"
+
+- name: create names incl loop_count in range
+  debug:
+    msg: "vm{{ item }}"
+  loop: "{{ range(301, 310 + 1, 1)|list }}"
+
+- name: create names incl loop_count in range and var in range
+  debug:
+    msg: "vm{{ item }}"
+  loop: "{{ range(var_stand_start, 310 + 1, 1)|list }}"

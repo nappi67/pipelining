@@ -1,0 +1,69 @@
+---
+# vars file for roles/loop_count
+vmnames:
+  - cpu: "bla"
+    name: vmwin
+  - cpu: "blub"
+    name: vmprod2
+var_stand_start: 301
+
+
+v_sequence: 1
+vg_test:
+  - GroupA:
+    # vms:
+    - hostname: "VMAVL310"
+      mac: "00:50:56:00:72:46"
+      vlan: "2122"
+    - hostname: "VMAVL311"
+      mac: "00:50:56:00:72:47"
+      vlan: "2122"
+  - GroupB:
+    # vms:
+    - hostname: "VMAVL312"
+      mac: "00:50:56:00:72:48"
+      vlan: "2122"
+    - hostname: "VMAVL313"
+      mac: "00:50:56:00:72:49"
+      vlan: "2122"
+
+v_test:
+  - hostname: "VMAVL310"
+    mac: "00:50:56:00:72:46"
+    vlan: "2122"
+    warte: 2
+  - hostname: "VMAVL311"
+    mac: "00:50:56:00:72:47"
+    vlan: "2122"
+    warte: 2
+  - hostname: "VMAVL312"
+    mac: "00:50:56:00:72:48"
+    vlan: "2122"
+    warte: 2
+  - hostname: "VMAVL313"
+    mac: "00:50:56:00:72:49"
+    vlan: "2122"
+    warte: 2
+  - hostname: "VMAVL310"
+    mac: "00:50:56:00:72:46"
+    vlan: "2122"
+    warte: 2
+  - hostname: "VMAVL3111111"
+    mac: "00:50:56:00:72:47"
+    vlan: "2122"
+    warte: 2
+  - hostname: "VMAVL3121111"
+    mac: "00:50:56:00:72:48"
+    vlan: "2122"
+    warte: 2
+  - hostname: "VMAVL3131111"
+    mac: "00:50:56:00:72:49"
+    vlan: "2122"
+    warte: 2
+
+durations: "{{ item }}"
+
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_async.html
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_strategies.html#setting-the-batch-size-with-serial
+# https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vcenterhost.doc/GUID-25EA5833-03B5-4EDD-A167-87578B8009B3.html
+

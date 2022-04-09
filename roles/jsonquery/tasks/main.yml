@@ -1,0 +1,32 @@
+---
+# tasks file for roles/jsonquery
+# - name: loop output
+#   debug:
+#     msg: "name ist: {{ item.0.name }} und hausnummer: {{item.1}}" 
+#   loop: "{{liste | subelements('hausnr', {'skip_missing': True}) }}"
+
+# - name: inhalte filtern
+#   debug:
+#   #  msg: "filter ausgabe: {{filecontent.results | selectattr("display_name", "match", "tomcat certificate for node nsxmgr10-3") }}"
+#     var: display_filter 
+#   when: "'tomcat certificate for node ' + item.vmname in display_filter"
+#   loop: "{{ liste }}"
+
+# - name: item in json_query nutzen
+#   debug:
+#     msg: "certid für {{ item.vmname }} ist {{ filecontent.results | json_query(display_filter_query_id) }}"
+
+#   loop: "{{ liste }}"
+
+- name: pem test
+  debug:
+    msg: " scn ausgabe: {{test}}"
+
+# - name: pem
+#   debug:
+#     msg: " ldap ausgabe: {{ldap_info}}"
+#   #loop: "{{ gv_ldap_sources }}"  
+  
+# - name: subject_cn
+#   debug:
+#     msg: " scn ausgabe: {{test_subject_cn}}"

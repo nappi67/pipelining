@@ -1,0 +1,6 @@
+# loop_count.yml
+---
+- name: teste jason Ausgaben
+  hosts: localhost
+  roles:
+    - loop_count

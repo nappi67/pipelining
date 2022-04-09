@@ -1,0 +1,92 @@
+---
+# vars file for roles/jsonquery
+
+# syslog
+- debug: 
+    var: r_get_all_syslog_exporters.results
+- debug:
+    var: v_syslog_exporter[].vmname
+
+- debug:
+    msg: "kein syslog server eingerichtet auf {{ item.hostname }}"
+  loop: "{{ igv_nodes }}"
+  when:  item.vmname in v_syslog_exporter[*].vmname
+
+
+
+##################################
+liste:
+  - name: "abc"
+    addresse: "sesamstr"
+    hausnr: 
+      - "16"
+      - "20"
+    vmname: "nsxmgr10-1.infra.dvint.de"
+  - name: "xyz"
+    addresse: "volou"
+    hausnr: 
+      - "190"
+    vmname: nsxmgr10-2.infra.dvint.de
+  - name: "fogo"
+    addresse: "sila"
+    hausnr: 
+      - "1"
+      - "7"
+    vmname: nsxmgr10-3.infra.dvint.de
+  - name: "tg"
+    addresse: "ba"
+    hausnr: []
+    vmname: nsxmgr10-4.infra.dvint.de
+
+filecontent: "{{ lookup('file', 'query.txt') }}"
+
+# display_filter_query: "[?display_name == 'tomcat certificate for node nsxmgr10-3.infra.dvint.de"].{display_name: display_name, used_by: used_by})"
+display_filter_query: "[*].display_name"
+display_filter: "{{ filecontent.results | json_query(display_filter_query) }}"
+
+# display_filter_query_id: "[?desplay_name=='{{item.vmname}}'].id"
+display_filter_query_id: "[?display_name==('tomcat DATEV certificate for node  {{item.vmname}}')].id"
+display_filter_id: "{{ filecontent.results | json_query(display_filter_query) }}"
+
+
+# test_query: "[*].json.pem_encoded"
+# test: "{{ r_ldap_certs.results | json_query(test_query)}}" 
+
+# test_ldap_server_query: "[].json.details[].{subject_cn: subject_cn} | [0]" # funktioniert
+test_ldap_server_query: "[?[].json.details[].{subject_cn: subject_cn}=='[wdczid003.zd.datev.de]'].subject_cn"
+test_ldap_server: "{{ r_ldap_certs.results | json_query(test_ldap_server_query)}}" 
+# test: "{{ r_ldap_certs.results | map(attribute='json'  | flatten)  }}"
+
+#test: "{{ r_ldap_certs.results[0].json }}" #[].json.details[].subject_cn}}"
+# ?subject_cn=='wdczid003.zd.datev.de'
+# | flatten
+
+# - debug: msg="{{ addresses | json_query(\"private_man[?type=='fixed'].addr\") }}"
+
+ldap_file: "{{ lookup('file', 'ldap_results.txt') }}"
+
+gv_ldap_sources:
+  identity_source_name: "LDAP-AD ZID"
+  identity_source_id: "ad-zid"
+  domain: "zd.datev.de"
+  identity: "tu12707@zd.datev.de" # s_ldap_username
+  password: "{{ s_ldap_password }}"
+  base_dn: "DC=zd,DC=datev,DC=de" 
+  ldap_server:  
+    - wdczid003.zd.datev.de
+    - wdczid004.zd.datev.de
+
+ldap_info_query: "[?json.details[].subject_cn=='wdczid003.zd.datev.de']"
+ldap_info: "{{ldap_file.results| json_query(ldap_info_query)| default(omit) }}"
+
+test_query: "[json.pem_encoded]"
+test: "{{ ldap_file.r_ldap_certs.results | from_json | json_query(test_query)}}" 
+
+test_subject_cn_query: "[*].json.details[*].{subject_cn: subject_cn}" # funktioniert
+# test_ldap_server_query: "[? [].json.details[].subject_cn=='wdczid003.zd.datev.de']"
+test_subject_cn: "{{ ldap_file.results | json_query(test_subject_cn_query)}}" 
+# test: "{{ r_ldap_certs.results | map(attribute='json'  | flatten)  }}"
+
+#test: "{{ r_ldap_certs.results[0].json }}" #[].json.details[].subject_cn}}"
+# ?subject_cn=='wdczid003.zd.datev.de'
+# | flatten
