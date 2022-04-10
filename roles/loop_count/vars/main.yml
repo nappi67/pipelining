@@ -35,7 +35,7 @@ v_test:
   - hostname: "VMAVL311"
     mac: "00:50:56:00:72:47"
     vlan: "2122"
-    warte: 2
+    warte: 3
   - hostname: "VMAVL312"
     mac: "00:50:56:00:72:48"
     vlan: "2122"
@@ -43,7 +43,7 @@ v_test:
   - hostname: "VMAVL313"
     mac: "00:50:56:00:72:49"
     vlan: "2122"
-    warte: 2
+    warte: 3
   - hostname: "VMAVL310"
     mac: "00:50:56:00:72:46"
     vlan: "2122"
