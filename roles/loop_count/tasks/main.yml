@@ -10,7 +10,8 @@
 - include_tasks: execute_batch.yml
   loop: "{{ v_test | batch(2) | list }}"
 
-- meta: end_play
+- name: end play for test
+  meta: end_play
 
 # tasks file for roles/loop_count
 - name: create names incl loop_count
