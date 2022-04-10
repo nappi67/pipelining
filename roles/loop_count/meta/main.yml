@@ -1,3 +1,5 @@
+# roles/loop_count/meta/main.yml
+---
 galaxy_info:
   author: nappi67
   description: check loop interval
