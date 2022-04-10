@@ -16,5 +16,6 @@ ansible-lint:
 ansible-syntax-check:
   stage: ansible-syntax-check
   script:
-    - ansible-playbook --inventory inventory --syntax-check loop_count.yml
+  #  - ansible-playbook --inventory inventory --syntax-check loop_count.yml
+    - ansible-playbook  --syntax-check loop_count.yml
 
