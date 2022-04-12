@@ -1,7 +1,7 @@
 # .gitlab-ci.yml
 ---
 default:
-  image: ogo.jfrog.io/default-docker-local/pipelinecomponents/ansible-lint:latest
+  image: fogo.jfrog.io/default-docker-local/pipelinecomponents/ansible-lint:latest
   
 stages:
   - ansible-lint
