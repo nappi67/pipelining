@@ -5,7 +5,7 @@ default:
   # before_script:
   #   - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
   
-  image: fogo.jfrog.io/default-docker-local/pipelinecomponents/ansible-lint:latest
+  image: fogo.jfrog.io/default-docker-remote/pipelinecomponents/ansible-lint:latest
 
 
   
