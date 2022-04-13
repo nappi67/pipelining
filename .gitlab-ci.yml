@@ -1,5 +1,8 @@
 # .gitlab-ci.yml
 ---
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
 default:
   image: fogo.jfrog.io/default-docker-local/pipelinecomponents/ansible-lint:latest
   
