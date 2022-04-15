@@ -9,7 +9,8 @@ default:
   # before_script:
   #   - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
   
-  image: $CI_REGISTRY/artifactory/default-docker-remote/pipelinecomponents/ansible-lint:latest
+  # image: $CI_REGISTRY/artifactory/default-docker-remote/pipelinecomponents/ansible-lint:latest
+  image: pipelinecomponents/ansible-lint:latest
 
 
   
