@@ -1,0 +1,5 @@
+---
+# tasks file for roles/fg_ubus01
+
+- include_tasks: 01_update_packages.yml
+- include_tasks: 02_reboot_if_necessary.yml

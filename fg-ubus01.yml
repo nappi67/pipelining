@@ -1,0 +1,9 @@
+# fg-ubus01.yml
+---
+
+- name: "Installiere alles was Du brauchst auf fg-ubus01"
+  hosts: fg-ubus01
+  roles:
+    - fg_ubus01
+  # tasks:
+  # - ping:

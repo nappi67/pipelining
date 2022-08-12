@@ -1,4 +1,0 @@
-# inventory/group_vars/all
----
-ansible_user: ansible
-ansible_ssh_pass: ansible
