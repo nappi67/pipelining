@@ -1,0 +1,8 @@
+# roles/fg_ubus01/tasks/04_install_docker.yml
+---
+
+- name: Install docker-ce
+  ansible.builtin.apt:
+    name: docker-ce
+    state: present
+    update_cache: yes

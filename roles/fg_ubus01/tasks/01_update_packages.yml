@@ -7,6 +7,13 @@
     force_apt_get: yes
     cache_valid_time: 3600
 
+- name: Install aptitude
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: true
+
+
 - name: aktualisiere alle installierte packages
   ansible.builtin.apt:
     upgrade: dist

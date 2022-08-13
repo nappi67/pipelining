@@ -1,0 +1,36 @@
+# roles/fg_ubus01/tasks/03_prepare_for_docker.yml
+---
+
+- name: isntall docker packages
+  ansible.builtin.apt:
+    name: 
+      - "apt-transport-https"
+      - "ca-certificates"
+      - "curl"
+      - "software-properties-common"
+    state: present
+    update_cache: yes
+
+
+- name: Add Docker s GPG key for ubuntu from official site
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+
+- name: Verify gpg key with the fingerprint
+  apt_key:
+    id: 0EBFCD88
+    state: present
+
+
+- name: Configure Docker for ubuntu stable repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
+    state: present
+    update_cache: yes
+
+- name: Update apt packages
+  apt:
+    update_cache: yes
+
