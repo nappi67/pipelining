@@ -4,10 +4,13 @@
 - name: isntall docker packages
   ansible.builtin.apt:
     name: 
-      - "apt-transport-https"
-      - "ca-certificates"
-      - "curl"
-      - "software-properties-common"
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
     state: present
     update_cache: yes
 
@@ -24,13 +27,24 @@
     state: present
 
 
+- name: Update apt and install docker-ce
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: true
+
+- name: Install Docker Module for Python
+  pip:
+    name: docker
+
+
 - name: Configure Docker for ubuntu stable repository
   apt_repository:
-    repo: deb [arch=aarch64] http://archive.ubuntu.com/ubuntu/ jammy main
+    repo: deb  https://download.docker.com/linux/ubuntu jammy stable
     state: present
     update_cache: yes
 
- #   http://archive.ubuntu.com/ubuntu/ jammy main
+ #   http://archive.ubuntu.com/ubuntu/ jammy main [arch=ansible_architecture signed-by=/etc/apt/keyrings/docker.gpg]
 
 - name: Update apt packages
   apt:
