@@ -1,0 +1,30 @@
+# roles/fg_ubus01/tasks/00_update_time.yml
+---
+
+- name: Install the NTP daemon to synchronize the clocks to ms.
+  apt: 
+    name: ntp
+    state: present
+
+
+- name: Make sure ntp is started, and is enabled on restart.
+  ansible.builtin.service: 
+    name: ntp
+    state: started 
+    enabled: yes
+
+
+- name: Stop ntp service to update
+  ansible.builtin.service:
+    name: ntp
+    state: stopped
+
+
+- name: update time
+  shell: sudo ntpd -gq
+  
+
+- name: Start ntp Service after update
+  ansible.builtin.service:
+    name: ntp
+    state: started

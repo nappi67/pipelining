@@ -26,9 +26,11 @@
 
 - name: Configure Docker for ubuntu stable repository
   apt_repository:
-    repo: deb [arch=aarch64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
+    repo: deb [arch=aarch64] http://archive.ubuntu.com/ubuntu/ jammy main
     state: present
     update_cache: yes
+
+ #   http://archive.ubuntu.com/ubuntu/ jammy main
 
 - name: Update apt packages
   apt:

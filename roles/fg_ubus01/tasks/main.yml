@@ -1,7 +1,12 @@
 ---
 # tasks file for roles/fg_ubus01
+- debug:
+    var: ansible_architecture
+
+# - meta: end_play
 
 - include_tasks: 01_update_packages.yml
 - include_tasks: 02_reboot_if_necessary.yml
 - include_tasks: 03_prepare_for_docker.yml
 - include_tasks: 04_install_docker.yml
+- include_tasks: 00_update_time.yml

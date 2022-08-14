@@ -3,6 +3,10 @@
 
 - name: Install docker-ce
   ansible.builtin.apt:
-    name: docker-ce
+    name: 
+      - docker-ce
+      - docker-ce-cli 
+      - containerd.io 
+      - docker-compose-plugin
     state: present
     update_cache: yes
