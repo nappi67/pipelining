@@ -16,5 +16,13 @@
     group: root
     mode: '0775'
 
+- name: copy docker-composer file to remote host
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: "/volumes/config/vault.json"
+    owner: root
+    group: root
+    mode: '0775'
+
 
 
