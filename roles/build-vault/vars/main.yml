@@ -3,6 +3,6 @@
 
 v_folder:
   - /volumes/config
-  - /volumes/fil
+  - /volumes/file
   - /volumes/logs
   - /docker_compose
