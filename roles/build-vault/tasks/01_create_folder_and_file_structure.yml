@@ -3,26 +3,21 @@
 
 - name: Create  directories if not exist
   ansible.builtin.file:
-    path: "{{ item }}"
+    path: "{{ item.v_dest }}"
     state: directory
     mode: '0775'
-  loop: "{{ v_folder }}"
+  loop: "{{ v_structure }}"
 
-- name: copy vault config file to remote system
+- name: copy files to remote system
   ansible.builtin.copy:
-    src: vault.json
-    dest: "/volumes/config/vault.json"
+    src: "{{ item.v_src }}"
+    dest: "{{ item.v_dest }}/{{ item.v_src }}"
     owner: root
     group: root
     mode: '0775'
+  loop: "{{ v_structure }}"
+  when: item.v_src | length > 0
 
-- name: copy docker-composer file to remote host
-  ansible.builtin.copy:
-    src: docker-compose.yml
-    dest: "/volumes/config/vault.json"
-    owner: root
-    group: root
-    mode: '0775'
 
 
 

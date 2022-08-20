@@ -1,2 +1,12 @@
 ---
 # defaults file for vault
+
+# v_structure:
+#   - v_src: "vault.json"
+#     v_dest: /volumes/config
+#   - v_src: "{{ v_src | default('default', true) }}"
+#     v_dest: "/volumes/file"
+#   - v_src: "{{ v_src | default('default', true) }}"
+#     v_dest: /volumes/logs
+#   - v_src: "docker-compose.yml"
+#     v_dest: "/docker_compose/vault"

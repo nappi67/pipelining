@@ -1,8 +1,12 @@
 ---
 # vars file for vault
 
-v_folder:
-  - /volumes/config
-  - /volumes/file
-  - /volumes/logs
-  - /docker_compose
+v_structure:
+  - v_src: "vault.json"
+    v_dest: /volumes/config
+  - v_src: ""
+    v_dest: "/volumes/file"
+  - v_src: ""
+    v_dest: /volumes/logs
+  - v_src: "docker-compose.yml"
+    v_dest: "/docker_compose/vault"
