@@ -1,0 +1,18 @@
+# roles/build-vault/tasks/01_create_folder_structure.yml
+---
+
+- name: Create  directories if not exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0775'
+  loop: "{{ v_folder }}"
+
+- name: copy vault config file to remote system
+  ansible.buildin.copy:
+    src: voult.json
+    dest: "/volumes/config/vault.json"
+    owner: root
+    group: root
+    mode: '0775'
+

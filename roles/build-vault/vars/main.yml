@@ -2,6 +2,7 @@
 # vars file for vault
 
 v_folder:
-  - config
-  - fil
-  - logss
+  - /volumes/config
+  - /volumes/fil
+  - /volumes/logs
+  - /docker_compose
