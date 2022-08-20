@@ -9,8 +9,8 @@
   loop: "{{ v_folder }}"
 
 - name: copy vault config file to remote system
-  ansible.buildin.copy:
-    src: voult.json
+  ansible.builtin.copy:
+    src: vault.json
     dest: "/volumes/config/vault.json"
     owner: root
     group: root
