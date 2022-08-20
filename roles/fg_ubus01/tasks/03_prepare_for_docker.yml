@@ -41,7 +41,7 @@
     disable_gpg_check: yes
   notify:
     - restart docker
-    
+
 - name: Update apt and install docker-ce
   apt:
     name: docker-ce
@@ -59,7 +59,6 @@
     state: present
     update_cache: yes
 
- #   http://archive.ubuntu.com/ubuntu/ jammy main [arch=ansible_architecture signed-by=/etc/apt/keyrings/docker.gpg]
 
 - name: Update apt packages
   apt:

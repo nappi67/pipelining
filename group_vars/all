@@ -1,7 +1,40 @@
 # group_vars/all
 ---
 
-ccr_env: dev
-docker_users: ccrdevdeploy
-vault_env: Development
+infravm_env: privat
+docker_users: infravm
+vault_env: Privat
 docker_cleanup: 168
+
+
+# +---------------------------------------------------------------------------+
+# + Admin Keys
+# +---------------------------------------------------------------------------+
+sshkey_fotini_rsa:
+  name: Fotini
+  team: privat
+  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCgzofzzdURIAzm1Ovm5hhn2p3M/7bLNso09QZDWG2mBfuAwMpHJklVO/TsSXpS1RqLePaUiE/Ma9FECKa4exIfr9064EEwnKDfd1NjX6mMYyXpoIcq0YWMJW/u2MXhI4fYtQ/S8fACX/pMpg3Jfune3v/d7k3v20P+f+Xzv3JmTSvHZtyZ67RpxxBPq5yubdA5tL+5Z/KPOEZgEh1xe4G9jQtYbcSVt2/FGckG43ulCn14BThxv50cddhw7ZYL9KN6p+xEQd7SWV37fccCZmsyy4snW+dfLj3ZINNWcAcNcDOEWQ/Bb+2oi61pSPLKCyvf5Y5jb7KKmeuR45xgpOqUmniZ7jQZ3ymrUoaBnReY9/5i2N9E/kDkn0H5d6HWk9Y910/dPqmn/3U5bkwYo6rmhea9Gvx+4xw16ryHx6tghwknNbxYj9rMtAovSXasBxWrNsH2+PT1bbmUAxmHpBfDSBh8IA63xo7V5pAiYfr82c06q/HPOzyx7oaeG9xM1cs= fotini@MBP-von-Fotini"
+
+
+linux_accounts_vault:
+  - name: root
+    # comment: 'Root User'
+    # sudo: false
+    # sudo_commands: ''
+    # groups: ''
+    # shell: '/bin/bash'
+    # key: "{{ sshkey_jnmaih_rsa.key }}\n
+    #       {{ sshkey_tshwolf_rsa.key }}\n
+    #       {{ sshkey_figona_rsa.key }}\n
+    #       {{ sshkey_tsschwa_rsa.key }}\n
+    #       {{ sshkey_pnkaru_rsa.key }}\n
+    #       {{ sshkey_groupit_rsa.key }}\n"
+  - name: infravm
+    comment: 'Deployment User'
+    sudo: false
+    sudo_commands: 'deployment,wheel'
+    groups: 'deployment,wheel'
+    shell: '/bin/bash'
+    key: "{{ sshkey_fotini_rsa.key }}\n
+
+  
