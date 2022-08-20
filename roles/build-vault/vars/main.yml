@@ -1,0 +1,7 @@
+---
+# vars file for vault
+
+v_folder:
+- config
+- fil
+- logs

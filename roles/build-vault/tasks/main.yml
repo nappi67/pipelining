@@ -1,0 +1,4 @@
+---
+# tasks file for vault
+- include_tasks: 01_create_folder_structure.yml
+

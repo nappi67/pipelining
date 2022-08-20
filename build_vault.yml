@@ -1,0 +1,9 @@
+---
+
+- name: build a hashicorp vault 
+  hosts: fg-ubus01
+  become: true
+  # vars:
+  #   - ccr_role: build-vault
+  roles:
+    - build-vault

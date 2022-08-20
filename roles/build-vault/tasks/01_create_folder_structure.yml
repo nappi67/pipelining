@@ -1,0 +1,9 @@
+# roles/build-vault/tasks/01_create_folder_structure.yml
+---
+
+- name: Create  directories if not exist
+  ansible.builtin.file:
+    path: "/volumes/{{ item.name }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ v_folder }}"
