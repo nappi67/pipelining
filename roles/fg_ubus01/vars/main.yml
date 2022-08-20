@@ -1,6 +1,17 @@
 ---
 # vars file for roles/fg_ubus01
 
+# Edition can be one of: 'ce' (Community Edition) or 'ee' (Enterprise Edition).
+docker_edition: 'ce'
+docker_package: "docker-{{ docker_edition }}"
+docker_package_state: present
+
+# Service options.
+docker_service_state: started
+docker_service_enabled: true
+docker_restart_handler_state: restarted
+
+
 container_count: 4
 default_container_name: docker
 default_container_image: ubuntu

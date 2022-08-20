@@ -1,6 +1,14 @@
 # roles/fg_ubus01/tasks/03_prepare_for_docker.yml
 ---
 
+# - name: Ensure old versions of Docker are not installed.
+#   package:
+#     name:
+#       - docker
+#       - docker-engine
+#     state: absent
+
+
 - name: isntall docker packages
   ansible.builtin.apt:
     name: 
@@ -26,7 +34,14 @@
     id: 0EBFCD88
     state: present
 
-
+- name: Install Docker.
+  package:
+    name: "{{ docker_package }}"
+    state: "{{ docker_package_state }}"
+    disable_gpg_check: yes
+  notify:
+    - restart docker
+    
 - name: Update apt and install docker-ce
   apt:
     name: docker-ce

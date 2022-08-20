@@ -1,0 +1,11 @@
+# roles/build-vault/tasks/02_start_vault_container.yml
+---
+
+- name: deploy Docker Compose stack
+  community.docker.docker_compose:
+    project_name: hcvault
+    project_src: /docker_compose/vault
+    state: present
+    build: yes
+    nocache: yes
+

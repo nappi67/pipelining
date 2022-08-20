@@ -10,3 +10,15 @@
       - docker-compose-plugin
     state: present
     update_cache: yes
+
+- name: Ensure docker.service.d dir exists.
+  ansible.builtin.file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+
+- name: Ensure Docker is started and enabled at boot.
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
+    

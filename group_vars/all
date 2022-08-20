@@ -1,0 +1,7 @@
+# group_vars/all
+---
+
+ccr_env: dev
+docker_users: ccrdevdeploy
+vault_env: Development
+docker_cleanup: 168

@@ -1,2 +1,11 @@
 ---
 # handlers file for roles/fg_ubus01
+
+- name: restart docker
+  service: "name=docker state={{ docker_restart_handler_state }}"
+
+- name: reload docker
+  systemd:
+    name: docker
+    state: reloaded
+
