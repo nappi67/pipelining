@@ -1,0 +1,25 @@
+# roles/fg_ubus01/tasks/01_users_groups.yml
+---
+
+- name: add user docker
+  ansible.builtin.user:
+    name: docker
+    shell: /bin/bash
+    uid: 2000
+    groups: sudo,docker
+    append: yes
+    state: present
+
+- name: Ensure docker users are added to the docker group.
+  ansible.builtin.user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  with_items: "{{ docker_users }}"
+
+- name: create .docker directory for docker user
+  file:
+    path: "/home/docker/.docker"
+    state: directory
+    owner: "docker"
+    group: "docker"

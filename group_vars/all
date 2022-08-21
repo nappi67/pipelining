@@ -35,6 +35,4 @@ linux_accounts_vault:
     sudo_commands: 'deployment,wheel'
     groups: 'deployment,wheel'
     shell: '/bin/bash'
-    key: "{{ sshkey_fotini_rsa.key }}\n
-
-  
+    key: "{{ sshkey_fotini_rsa.key }}\n"
