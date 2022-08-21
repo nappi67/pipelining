@@ -10,4 +10,4 @@
 - include_tasks: 03_reboot_if_necessary.yml
 - include_tasks: 04_prepare_for_docker.yml
 - include_tasks: 05_install_docker.yml
-- include_tasks: 06_keystore.yml
+- include_tasks: 06_docker-compose.yml
