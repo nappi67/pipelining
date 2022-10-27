@@ -1,15 +1,39 @@
-version: '2'
+version: '3.8'
 services:
-  vault:
+  vault-server:
     image: vault:latest
     container_name: vault
     ports:
       - "8200:8200"
-    restart: always
-    volumes:
-      - /volumes/logs:/vault/logs
-      - /volumes/file:/vault/file
-      - /volumes/config:/vault/config
+    environment:
+      VAULT_ADDR: "http://0.0.0.0:8200"
+      VAULT_DEV_ROOT_TOKEN_ID: "vault-plaintext-root-token"
     cap_add:
       - IPC_LOCK
-    entrypoint: vault server -config=/vault/config/vault.json
+    networks:
+      vault-network:
+        ipv4_address: 172.21.0.10
+        aliases:
+          - vault-server
+  vault-client:
+    build: .
+    environment:
+      VAULT_ADDR: "http://vault-server:8200"
+    networks:
+      vault-network:
+          ipv4_address: 172.21.0.20
+          aliases:
+            - vault-client
+networks:
+  vault-network:
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
+   # restart: always
+   # volumes:
+   #   - /volumes/logs:/vault/logs
+   #   - /volumes/file:/vault/file
+   #   - /volumes/config:/vault/config
+   # cap_add:
+   #   - IPC_LOCK
+   # entrypoint: vault server -config=/vault/config/vault.json

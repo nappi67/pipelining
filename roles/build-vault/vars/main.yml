@@ -10,3 +10,7 @@ v_structure:
     v_dest: /volumes/logs
   - v_src: "docker-compose.yml"
     v_dest: "/docker_compose/vault"
+  - v_src: "Dockerfile"
+    v_dest: "/docker_compose/vault"
+  - v_src: "run.sh"
+    v_dest: "/docker_compose/vault"

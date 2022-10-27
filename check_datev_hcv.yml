@@ -1,0 +1,19 @@
+# check_datev_hcv.yml
+---
+
+- hosts: localhost
+  vars:
+    g_VAULT_TOKEN:'hvs.CAESIEd_O30AQTrA6WLrXJWhpQsm0lpGFroXj9detHVFNF8OGiIKHGh2cy5VNWhJYmFvQ25abEtNRHBFeFp1eGZqa1UQneQI'
+# g_VAULT_TOKEN: "{{ lookup('env','VAULT_TOKEN') }}"
+# g_VAULT_TOKEN: !vault |
+#   $ANSIBLE_VAULT;1.1;AES256
+#   65666665393365613038346665383333663533633464623737393737663262613132633930623566
+#   6163393734336562393335346235623235376565626461320a646565326664373236666334353131
+#   613732613938323231653939326362......
+
+
+  tasks:
+    - name: give back secret from hcv_datev
+      debug: "{{ lookup('hashi_vault', 'secret=secret/kv/crz/iaas/vmware/nsxt/admin:password token={{ g_VAULT_TOKEN}} url=https://vault-kms.qs.datev.de:8200 validate_certs=False"
+      
+  
